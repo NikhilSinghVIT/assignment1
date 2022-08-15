@@ -11,13 +11,12 @@ import java.util.List;
 public class Main {
 
     public static void main(String[] args) {
-	// write your code here
 
         Functionalities functionalities = new Functionalities();
         List<Customer> customerList = new ArrayList<>();
         Customer customer1 = new Customer();
         Address address1 = new Address("21", "streeta","nainital","uk");
-        Account account1 = new Account("7633542367","HDFC0001",899.2);
+        Account account1 = new Account("7633542367","HDFC0001",8500.2);
         customer1.setName("nikhil");
 
         customer1.setAddress(address1);
@@ -64,12 +63,55 @@ public class Main {
         customerList.add(customer4);
         customerList.add(customer5);
 
-//        for(Customer customer: customerList){
-//            System.out.println(customer.getName());
-//        }
+
+        System.out.println("------------Query1----------------");
 
         Customer query1 = functionalities.getCustomerWithExactMatchingName(customerList,"nikhil");
         System.out.println(query1.toString());
+
+        //data setup for query 2
+
+        Address addressToSearch = new Address("23", "streetc","nainital","uk");
+
+        System.out.println("------------Query2----------------");
+        Customer query2 = functionalities.getCustomerWithMatchingAddress(customerList, addressToSearch);
+        System.out.println(query2.toString());
+
+
+        System.out.println("------------Query3----------------");
+        List<Customer> query3 = functionalities.getAllCustomersHavingAccountBalanceGreaterThan(customerList, 8000.0);
+
+        for(Customer k:query3){
+            System.out.println(k.toString());
+            System.out.println("-----");
+        }
+
+        System.out.println("------------Query4----------------");
+
+        List<String> nameList = functionalities.convertToListName(query3);
+        for(String k:nameList){
+            System.out.println(k);
+            System.out.println("-----");
+        }
+
+        System.out.println("------------Query5----------------");
+
+        String query5 = functionalities.convertCustomerListToString(customerList);
+        System.out.println(query5);
+
+        System.out.println("------------Query6----------------");
+        List<String> query6 = functionalities.changeCase(nameList);
+        for(String k:query6){
+            System.out.println(k);
+            System.out.println("-----");
+        }
+
+        System.out.println("------------Query7----------------");
+        List<String> query7 = functionalities.sortNameList(nameList);
+        for(String k:query7){
+            System.out.println(k);
+            System.out.println("-----");
+        }
 
 
 
