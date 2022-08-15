@@ -44,7 +44,7 @@ public class Main {
         Customer customer4 = new Customer();
         Address address4 = new Address("24", "streetd","haldwani","uk");
         Account account4 = new Account("7633542347","HDFC0009",87445.2);
-        customer1.setName("siddhu");
+        customer4.setName("siddhu");
 
 
         customer4.setAddress(address4);
@@ -69,7 +69,7 @@ public class Main {
 //        }
 
         Customer query1 = functionalities.getCustomerWithExactMatchingName(customerList,"nikhil");
-        query1.toString();
+        System.out.println(query1.toString());
 
 
 
